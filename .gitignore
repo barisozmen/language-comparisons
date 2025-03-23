@@ -175,3 +175,69 @@ cython_debug/
 
 
 .vscode/
+
+# Compiled files
+*.o
+*.so
+*.exe
+*.dll
+*.class
+*.pyc
+*.pyo
+*.out
+
+# Build directories
+/build/
+/dist/
+/target/
+/bin/
+/obj/
+
+# Language-specific
+# Python
+venv/
+.env
+.venv
+env/
+ENV/
+*.egg-info/
+
+# JavaScript/Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+
+# Rust
+Cargo.lock
+**/*.rs.bk
+
+# C/C++
+*.d
+*.slo
+*.lo
+*.obj
+*.gch
+*.pch
+CMakeFiles/
+CMakeCache.txt
+
+# Java
+*.jar
+*.war
+*.ear
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Benchmark results (can be regenerated)
+/reports/temp/
+
+# Optional: large data files used for testing
+/test_data/large/
