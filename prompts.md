@@ -21,3 +21,8 @@ Do the Phase 1 of @tasks.md after reading @README.md
 
 #### 4. Phase 1 (continued)
 For all the files in @environment_setup directory , populate them accordingly based on how to setup the environment. For context, check first @README.md and @tasks.md . This can be thought as the part of Phase 1 of @tasks.md 
+
+#### 5. Phase 2: Implementing some algorithms
+Do the Phase 2 of @tasks.md after reading @README.md  
+
+note: this prompt haven't been completed, could only implemented the fibonacci algorithm, probably its context wasn't enough for all algorithms together.

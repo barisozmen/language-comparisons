@@ -6,18 +6,18 @@
 - [x] Set up the GitHub repository with proper documentation
 - [x] Create issue templates for algorithm implementations, design patterns, and bug reports
 - [x] Create a development environment setup guide for each language
-- [] Install and configure loc tool for line counting
+- [x] Install and configure loc tool for line counting
 - [x] Create contribution guidelines
 
 ## Phase 2: Initial Algorithm Implementation (Weeks 2-3)
 
-- [ ] Implement Fibonacci algorithm (both recursive and iterative)
-  - [ ] Python implementation
-  - [ ] JavaScript implementation
-  - [ ] C implementation
-  - [ ] C++ implementation
-  - [ ] Rust implementation
-  - [ ] Scheme implementation
+- [x] Implement Fibonacci algorithm (both recursive and iterative)
+  - [x] Python implementation
+  - [x] JavaScript implementation
+  - [x] C implementation
+  - [x] C++ implementation
+  - [x] Rust implementation
+  - [x] Scheme implementation
   - [ ] Write language-specific notes and documentation
 
 - [ ] Implement Mandelbrot set generation
