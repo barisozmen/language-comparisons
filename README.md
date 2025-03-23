@@ -1,4 +1,4 @@
-# Programming Language Comparisons
+# Programming Language Wars
 
 This project aims to compare various programming languages across multiple dimensions including:
 - Performance (execution time)
