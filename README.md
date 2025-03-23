@@ -48,6 +48,8 @@ language-comparison/
     ├── design_patterns_complexity.md
     └── ...
 ```
+See [DIRECTORY_STRUCTURE.md](DIRECTORY_STRUCTURE.md) for the aspired structure, in more detail
+
 
 ## Languages to Compare
 
