@@ -4,7 +4,7 @@ This guide will help you set up a Scheme development environment for contributin
 
 ## Requirements
 
-- A Scheme interpreter or compiler (we'll use Guile or Racket)
+- A Scheme interpreter or compiler (we'll use MIT Scheme, Guile, or Chicken Scheme)
 - Text editor with Scheme support
 - Git
 - Basic familiarity with command-line tools
@@ -13,16 +13,24 @@ This guide will help you set up a Scheme development environment for contributin
 
 ### Windows
 
-1. **Install Racket** (recommended for Windows):
-   - Download the installer from [racket-lang.org](https://racket-lang.org/download/)
+1. **Install MIT Scheme**:
+   - Download the installer from [MIT Scheme](https://www.gnu.org/software/mit-scheme/)
    - Run the installer and follow the prompts
-   - Add Racket to your PATH
+   - Add MIT Scheme to your PATH
    - Verify installation:
      ```
-     racket --version
+     scheme --version
      ```
 
-2. **Alternative: Install Guile using MSYS2**:
+2. **Alternative: Install Chicken Scheme**:
+   - Download the installer from [Chicken Scheme](https://www.call-cc.org/download.html)
+   - Run the installer and follow the prompts
+   - Verify installation:
+     ```
+     csi -version
+     ```
+
+3. **Alternative: Install Guile using MSYS2**:
    - Install [MSYS2](https://www.msys2.org/)
    - Open MSYS2 shell and run:
      ```
@@ -36,25 +44,46 @@ This guide will help you set up a Scheme development environment for contributin
 
 ### macOS
 
-1. **Install Racket using Homebrew**:
+1. **Install MIT Scheme using Homebrew**:
    ```bash
-   brew install --cask racket
+   brew install mit-scheme
    ```
 
-2. **Alternative: Install Guile using Homebrew**:
+2. **Install Chicken Scheme using Homebrew**:
+   ```bash
+   brew install chicken
+   ```
+
+3. **Install Guile using Homebrew**:
    ```bash
    brew install guile
    ```
 
-3. **Verify installation**:
+4. **Verify installation**:
    ```bash
-   racket --version  # or
-   guile --version
+   scheme --version  # MIT Scheme
+   csi -version      # Chicken Scheme
+   guile --version   # Guile
    ```
 
 ### Linux
 
-1. **Install Guile**:
+1. **Install MIT Scheme**:
+   - Ubuntu/Debian:
+     ```bash
+     sudo apt update
+     sudo apt install mit-scheme
+     ```
+   - Fedora:
+     ```bash
+     sudo dnf install mit-scheme
+     ```
+   - Arch Linux:
+     ```bash
+     sudo pacman -S mit-scheme
+     ```
+
+2. **Install Guile**:
    - Ubuntu/Debian:
      ```bash
      sudo apt update
@@ -69,33 +98,32 @@ This guide will help you set up a Scheme development environment for contributin
      sudo pacman -S guile
      ```
 
-2. **Alternative: Install Racket**:
+3. **Install Chicken Scheme**:
    - Ubuntu/Debian:
      ```bash
-     sudo apt install racket
+     sudo apt install chicken-bin
      ```
    - Fedora:
      ```bash
-     sudo dnf install racket
+     sudo dnf install chicken
      ```
    - Arch Linux:
      ```bash
-     sudo pacman -S racket
+     sudo pacman -S chicken
      ```
 
-3. **Verify installation**:
+4. **Verify installation**:
    ```bash
-   guile --version
-   # or
-   racket --version
+   scheme --version  # MIT Scheme
+   csi -version      # Chicken Scheme
+   guile --version   # Guile
    ```
 
 ## IDE Recommendations
 
 1. **Visual Studio Code**:
    - Install from [code.visualstudio.com](https://code.visualstudio.com/)
-   - Install the "Magic Racket" extension for Racket support
-   - Or install "vscode-scheme" for general Scheme support
+   - Install the "vscode-scheme" extension for Scheme support
 
 2. **Emacs** (traditional choice for Scheme development):
    - Install Emacs from your package manager or [gnu.org/software/emacs](https://www.gnu.org/software/emacs/)
@@ -106,16 +134,16 @@ This guide will help you set up a Scheme development environment for contributin
    - Configure in your .emacs file:
      ```elisp
      (require 'geiser)
-     (setq geiser-active-implementations '(guile racket))
+     (setq geiser-active-implementations '(mit guile chicken))
      ```
 
-3. **DrRacket** (comes with Racket):
-   - Integrated development environment specific to Racket
-   - Includes debugger, documentation, and REPL
-
-4. **Vim/Neovim**:
+3. **Vim/Neovim**:
    - Install vim-lisp-syntax or similar plugin
    - Consider rainbow parentheses plugins for better readability
+
+4. **Atom**:
+   - Install the "language-scheme" package
+   - Consider "lisp-paredit" for structural editing
 
 ## Code Style
 
@@ -182,24 +210,21 @@ For testing Scheme code, we recommend using a simple testing framework or built-
    (test-equal "fibonacci of 10" 55 (fibonacci-iterative 10))
    ```
 
-2. **Using Racket's rackunit**:
+2. **Using SRFI-64 (included in many Scheme implementations)**:
    ```scheme
-   #lang racket
-   (require rackunit)
-   (require "fibonacci.rkt")
+   (import (srfi 64))
    
-   (check-equal? (fibonacci-iterative 10) 55 "fibonacci of 10")
+   (test-begin "fibonacci-tests")
+   (test-equal "fibonacci of 10" 55 (fibonacci-iterative 10))
+   (test-end)
    ```
 
 3. **Run tests**:
-   - For basic Scheme:
-     ```bash
-     guile test-fibonacci.scm
-     ```
-   - For Racket:
-     ```bash
-     racket test-fibonacci.rkt
-     ```
+   ```bash
+   scheme < test-fibonacci.scm  # MIT Scheme
+   csi test-fibonacci.scm       # Chicken Scheme
+   guile test-fibonacci.scm     # Guile
+   ```
 
 ## Troubleshooting
 
@@ -210,7 +235,7 @@ For testing Scheme code, we recommend using a simple testing framework or built-
 
 2. **Library/module loading errors**:
    - Check your load paths are correctly set
-   - Verify file extensions match the implementation (.scm for Guile, .rkt for Racket)
+   - Verify file extensions match the implementation (.scm is standard)
    - Use absolute paths if relative paths aren't working
 
 3. **Parentheses matching**:
@@ -224,9 +249,9 @@ For testing Scheme code, we recommend using a simple testing framework or built-
    - "Wrong type argument" usually means passing incorrect data types
 
 5. **Finding help**:
+   - MIT Scheme: [MIT Scheme Documentation](https://www.gnu.org/software/mit-scheme/documentation/stable/mit-scheme-ref.pdf)
    - Guile: [Guile Manual](https://www.gnu.org/software/guile/manual/)
-   - Racket: [Racket Documentation](https://docs.racket-lang.org/)
+   - Chicken Scheme: [Chicken Wiki](https://wiki.call-cc.org/)
    - Community: [Scheme Reddit](https://www.reddit.com/r/scheme/)
 
 If you encounter persistent issues, please open an issue in the project repository with details about your environment and the problem you're facing.
-
