@@ -1,4 +1,4 @@
-# Programming Language Comparison Project
+# Programming Language Comparisons
 
 This project aims to compare various programming languages across multiple dimensions including:
 - Performance (execution time)
