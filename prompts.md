@@ -18,3 +18,6 @@ Read this @README.md  file in details for an open-source project comparing vario
 
 #### 3. Phase 1: project setup
 Do the Phase 1 of @tasks.md after reading @README.md  
+
+#### 4. Phase 1 (continued)
+For all the files in @environment_setup directory , populate them accordingly based on how to setup the environment. For context, check first @README.md and @tasks.md . This can be thought as the part of Phase 1 of @tasks.md 

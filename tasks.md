@@ -2,12 +2,12 @@
 
 ## Phase 1: Project Setup (Week 1)
 
-- [ ] Create the basic repository structure as outlined in README.md, for taking into account the extensions that will be made in the future, as described in this doc, and in README.md
-- [ ] Set up the GitHub repository with proper documentation
-- [ ] Create issue templates for algorithm implementations, design patterns, and bug reports
-- [ ] Create a development environment setup guide for each language
-- [ ] Install and configure loc tool for line counting
-- [ ] Create contribution guidelines
+- [x] Create the basic repository structure as outlined in README.md, for taking into account the extensions that will be made in the future, as described in this doc, and in README.md
+- [x] Set up the GitHub repository with proper documentation
+- [x] Create issue templates for algorithm implementations, design patterns, and bug reports
+- [x] Create a development environment setup guide for each language
+- [] Install and configure loc tool for line counting
+- [x] Create contribution guidelines
 
 ## Phase 2: Initial Algorithm Implementation (Weeks 2-3)
 
