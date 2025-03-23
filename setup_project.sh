@@ -16,7 +16,7 @@ mkdir -p .github/{ISSUE_TEMPLATE,workflows}
 mkdir -p specialized_domains/{machine_learning,multimedia_processing,network_programming,database_interaction}
 
 # Create README files in each algorithm directory
-for dir in algorithms/*/ data_structures/*/ design_patterns/*/*/*/; do
+for dir in algorithms/*/ data_structures/*/ design_patterns/*/*/; do
   echo "# $(basename "$dir") Implementation" > "${dir}README.md"
   echo -e "\nThis directory contains implementations of the $(basename "$dir") algorithm/pattern in various programming languages.\n" >> "${dir}README.md"
   echo -e "## Implementation Details\n\n## Language-Specific Notes\n\n## Benchmarking Results\n" >> "${dir}README.md"
@@ -67,9 +67,12 @@ chmod +x benchmarks/scripts/generate_report.py
 
 # Create environment setup guides
 for lang in python javascript c cpp rust scheme; do
+  # Convert first letter to uppercase using tr instead of ${lang^}
+  lang_capitalized=$(echo "$lang" | sed 's/./\u&/') 
+  
   touch "docs/environment_setup/${lang}_setup.md"
-  echo "# ${lang^} Development Environment Setup" > "docs/environment_setup/${lang}_setup.md"
-  echo -e "\nThis guide will help you set up a ${lang^} development environment for contributing to the Programming Language Comparison Project.\n" >> "docs/environment_setup/${lang}_setup.md"
+  echo "# ${lang_capitalized} Development Environment Setup" > "docs/environment_setup/${lang}_setup.md"
+  echo -e "\nThis guide will help you set up a ${lang_capitalized} development environment for contributing to the Programming Language Comparison Project.\n" >> "docs/environment_setup/${lang}_setup.md"
   echo -e "## Requirements\n\n## Installation Instructions\n\n### Windows\n\n### macOS\n\n### Linux\n\n## IDE Recommendations\n\n## Code Style\n\n## Running Tests\n\n## Troubleshooting\n" >> "docs/environment_setup/${lang}_setup.md"
 done
 
