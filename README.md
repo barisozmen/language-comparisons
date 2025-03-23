@@ -67,7 +67,15 @@ Additional languages to consider adding later:
 - Kotlin
 - Swift
 - Haskell
+- Racket
 - TypeScript
+- Lua
+- Ruby
+- Scala
+- Erlang
+- Elixir
+- OCaml
+- F#
 
 ## Algorithms to Implement
 
