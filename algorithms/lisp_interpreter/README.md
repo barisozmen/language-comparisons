@@ -4,7 +4,7 @@ A collection of minimal Lisp interpreters across multiple languages, inspired by
 
 ## Overview
 
-This directory showcases how a Lisp (Scheme) interpreter can be elegantly implemented in C, C++, JavaScript, Python, Rust, and Scheme itself. Each implementation follows the same architectural pattern pioneered by Peter Norvig in his famous essay ["(How to Write a (Lisp) Interpreter (in Python))"](http://norvig.com/lispy.html):
+This directory showcases how a Lisp (Scheme) interpreter can be elegantly implemented in C, C++, JavaScript, Python, Ruby, Rust, and Scheme itself. Each implementation follows the same architectural pattern pioneered by Peter Norvig in his famous essay ["(How to Write a (Lisp) Interpreter (in Python))"](http://norvig.com/lispy.html):
 
 1. **Tokenize**: Convert input string to tokens
 2. **Parse**: Build abstract syntax tree from tokens  
@@ -59,6 +59,40 @@ function evaluate(x, env = globalEnv) {
 ```
 
 **Why it's elegant**: JavaScript's functional nature and dynamic typing make it feel close to Lisp itself. Destructuring and spread operators keep code minimal.
+
+---
+
+### Ruby (`lisp.rb`)
+
+**Lines of Code**: ~166  
+**Key Features**: Expressive syntax with powerful blocks and procs  
+**Highlights**:
+- Symbols as first-class values (perfect for Lisp!)
+- Flexible hash-based environment with natural syntax
+- Procs/lambdas with `->` syntax for closures
+- Pattern matching through case statements
+- Ruby's expressiveness makes code read naturally
+
+```ruby
+def lisp_eval(x, env = $global_env)
+  if x.is_a?(Symbol)
+    env[x] || (raise "undefined symbol: #{x}")
+  elsif !x.is_a?(Array)
+    x
+  else
+    op, *args = x
+    case op
+    when :quote then args[0]
+    when :lambda
+      params, body = args
+      ->(*vals) { lisp_eval(body, Env.new(params, vals, env)) }
+    # ... more special forms ...
+    end
+  end
+end
+```
+
+**Why it's elegant**: Ruby's symbols are a natural fit for Lisp symbols, and the `->` lambda syntax plus splat operators make the code remarkably clean. Ruby's flexibility lets us write code that feels like a DSL.
 
 ---
 
@@ -164,15 +198,15 @@ Exp* eval(Exp* exp, Env* env) {
 
 ## Feature Comparison
 
-| Feature | Python | JavaScript | Rust | C++ | C | Scheme |
-|---------|--------|------------|------|-----|---|--------|
-| LOC | 120 | 155 | 270 | 245 | 365 | 140 |
-| Memory | GC | GC | Rc | shared_ptr | Manual | GC |
-| Type System | Dynamic | Dynamic | Static | Static | Static | Dynamic |
-| Closures | Native | Native | Native | std::function | Manual | Native |
-| Pattern Match | isinstance | typeof | match | if/else | if/else | cond/case |
-| Error Handling | Exception | Exception | Result | Exception | Return NULL | Exception |
-| Readability | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Feature | Python | JavaScript | Ruby | Rust | C++ | C | Scheme |
+|---------|--------|------------|------|------|-----|---|--------|
+| LOC | 127 | 170 | 166 | 284 | 310 | 390 | 192 |
+| Memory | GC | GC | GC | Rc | shared_ptr | Manual | GC |
+| Type System | Dynamic | Dynamic | Dynamic | Static | Static | Static | Dynamic |
+| Closures | Native | Native | Native | Native | std::function | Manual | Native |
+| Pattern Match | isinstance | typeof | is_a?/case | match | if/else | if/else | cond/case |
+| Error Handling | Exception | Exception | Exception | Result | Exception | Return NULL | Exception |
+| Readability | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 
 ## Common Features Implemented
 
@@ -220,6 +254,11 @@ python3 lisp.py
 ### JavaScript
 ```bash
 node lisp.js
+```
+
+### Ruby
+```bash
+ruby lisp.rb
 ```
 
 ### Rust
@@ -272,12 +311,15 @@ These features, while important for production Lisps, would obscure the core ide
 
 ## Key Insights
 
-### Why Python and Scheme Are Shortest
+### Why Python, Ruby, JavaScript, and Scheme Are Shortest
 
-Python and Scheme implementations are the most concise because:
-- Both have garbage collection (no manual memory management)
-- Both have first-class functions (lambdas work naturally)
-- Both have flexible typing (easy to represent heterogeneous expressions)
+The dynamic language implementations are the most concise because:
+- All have garbage collection (no manual memory management)
+- All have first-class functions (lambdas work naturally)
+- All have flexible typing (easy to represent heterogeneous expressions)
+- Ruby's symbols are a perfect match for Lisp symbols
+- JavaScript's functional features make list processing natural
+- Python's clean syntax eliminates boilerplate
 - Scheme gets bonus points for being a Lisp (meta-circular = conceptually simple)
 
 ### Why C Is Longest
