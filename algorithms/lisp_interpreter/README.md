@@ -19,7 +19,7 @@ This directory showcases how a Lisp (Scheme) interpreter can be implemented in C
  Language             Files        Lines        Blank      Comment         Code
 --------------------------------------------------------------------------------
  C                        1          391           56           19          316
- Markdown                 1          358           81            0          277
+ Markdown                 1          377           83            0          294
  C++                      1          311           51           13          247
  Rust                     1          285           37            2          246
  Lisp                     2          272           40           36          196
@@ -27,7 +27,7 @@ This directory showcases how a Lisp (Scheme) interpreter can be implemented in C
  Ruby                     1          167           22           12          133
  Python                   1          128           15            2          111
 --------------------------------------------------------------------------------
- Total                    9         2083          322           93         1668
+ Total                    9         2102          324           93         1685
 ```
 
 ## Language Comparison
@@ -219,7 +219,7 @@ Exp* eval(Exp* exp, Env* env) {
 
 | Feature | Python | JavaScript | Ruby | Rust | C++ | C | Scheme |
 |---------|--------|------------|------|------|-----|---|--------|
-| LOC | 127 | 170 | 166 | 284 | 310 | 390 | 192 |
+| LOC | 111 | 142 | 133 | 246 | 247 | 316 | 196 |
 | Memory | GC | GC | GC | Rc | shared_ptr | Manual | GC |
 | Type System | Dynamic | Dynamic | Dynamic | Static | Static | Static | Dynamic |
 | Closures | Native | Native | Native | Native | std::function | Manual | Native |
