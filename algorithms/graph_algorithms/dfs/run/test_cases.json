@@ -1,0 +1,17 @@
+{
+  "graph": {
+    "A": ["B", "C"],
+    "B": ["D", "E"],
+    "C": ["F"],
+    "D": [],
+    "E": ["F"],
+    "F": []
+  },
+  "tests": [
+    {"start": "A", "goal": "F"},
+    {"start": "A", "goal": "D"},
+    {"start": "A", "goal": "E"},
+    {"start": "B", "goal": "F"}
+  ]
+}
+

@@ -1,0 +1,14 @@
+{
+  "graph": {
+    "A": [["B", 1], ["C", 4]],
+    "B": [["C", 2], ["D", 5]],
+    "C": [["D", 1]],
+    "D": []
+  },
+  "tests": [
+    {"start": "A", "goal": "D", "expected_cost": 4},
+    {"start": "A", "goal": "C", "expected_cost": 3},
+    {"start": "B", "goal": "D", "expected_cost": 3}
+  ]
+}
+
