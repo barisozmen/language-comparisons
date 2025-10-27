@@ -4,12 +4,31 @@ A collection of minimal Lisp interpreters across multiple languages, inspired by
 
 ## Overview
 
-This directory showcases how a Lisp (Scheme) interpreter can be elegantly implemented in C, C++, JavaScript, Python, Ruby, Rust, and Scheme itself. Each implementation follows the same architectural pattern pioneered by Peter Norvig in his famous essay ["(How to Write a (Lisp) Interpreter (in Python))"](http://norvig.com/lispy.html):
+This directory showcases how a Lisp (Scheme) interpreter can be implemented in C, C++, JavaScript, Python, Ruby, Rust, and Scheme itself. Each implementation follows the same architectural pattern pioneered by Peter Norvig in his famous essay ["(How to Write a (Lisp) Interpreter (in Python))"](http://norvig.com/lispy.html):
 
 1. **Tokenize**: Convert input string to tokens
 2. **Parse**: Build abstract syntax tree from tokens  
 3. **Eval**: Execute the AST in an environment
 4. **Environment**: Symbol table with lexical scoping
+
+### Lines of Code
+
+```bash
+❯ loc .
+--------------------------------------------------------------------------------
+ Language             Files        Lines        Blank      Comment         Code
+--------------------------------------------------------------------------------
+ C                        1          391           56           19          316
+ Markdown                 1          358           81            0          277
+ C++                      1          311           51           13          247
+ Rust                     1          285           37            2          246
+ Lisp                     2          272           40           36          196
+ JavaScript               1          171           20            9          142
+ Ruby                     1          167           22           12          133
+ Python                   1          128           15            2          111
+--------------------------------------------------------------------------------
+ Total                    9         2083          322           93         1668
+```
 
 ## Language Comparison
 
