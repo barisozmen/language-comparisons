@@ -20,6 +20,7 @@ language-comparison/
 │   │   ├── fibonacci.cpp
 │   │   ├── fibonacci.rs
 │   │   ├── fibonacci.scm
+│   │   ├── fibonacci.rb
 │   │   └── README.md
 │   ├── mandelbrot/
 │   │   └── ...
@@ -60,6 +61,7 @@ Initial set of languages:
 - C++
 - Rust
 - Scheme
+- Ruby
 
 Additional languages to consider adding later:
 - Go
